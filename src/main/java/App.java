@@ -25,11 +25,27 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    // get("genres/:id", (request, response) -> {
+    //   Map<String, Object> model = new HashMap<String, Object>();
+    //   Genre genre = Genre.find(Integer.parseInt(request.params(":id")));
+    //   model.put("genre", genre);
+    //   model.put("template", "templates/genre.vtl");
+    //   return new ModelAndView(model, layout);
+    // }, new VelocityTemplateEngine());
+
     get("genres/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      Genre genre = Genre.find(Integer.parseInt(request.params(":id")));
-      model.put("genre", genre);
+      // Genre genre = Genre.find(Integer.parseInt(request.params(":id")));
+      model.put("genre", Genre.find(Integer.parseInt(request.params(":id"))));
       model.put("template", "templates/genre.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    //list all vinyls in the Vinyls class
+    get("vinyls/", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("vinyls", Vinyl.getAll());
+      model.put("template", "templates/Vinyls.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -38,7 +54,14 @@ public class App {
       model.put("genres", Genre.getAll());
       model.put("template", "templates/newVinyl.vtl");
       return new ModelAndView(model, layout);
+
     }, new VelocityTemplateEngine());
+
+
+
+// return response.redirect("/example");
+
+
 
     post("vinyls/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();

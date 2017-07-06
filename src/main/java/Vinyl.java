@@ -31,4 +31,8 @@ public class Vinyl {
   public static Vinyl find(int id){
     return instances.get(id - 1);
   }
+
+  public static List<Vinyl> getAll() {
+    return instances;
+  }
 }

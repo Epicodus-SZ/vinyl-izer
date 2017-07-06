@@ -1,0 +1,9 @@
+<!--vinyles.vtl-->
+<h1>All Vinyls</h1>
+<ul>
+  #foreach ($vinyl in $vinyls)
+    <li>$vinyl.getTitle()</li>
+  #end
+</ul>
+<a href="/vinyls/new">Add New Vinyl</a>
+<!--vinyls.vtl-->
