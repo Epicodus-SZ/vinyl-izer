@@ -27,4 +27,8 @@ public class Vinyl {
   public static int getSize(){
     return instances.size();
   }
+
+  public static Vinyl find(int id){
+    return instances.get(id - 1);
+  }
 }

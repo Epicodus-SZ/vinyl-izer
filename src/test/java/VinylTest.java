@@ -36,5 +36,22 @@ public class VinylTest {
     assertEquals(1, testVinyl.getId());
   }
 
+  @Test
+  public void find_ReturnsAVinylObject() {
+    Vinyl.reset();
+    Vinyl testVinyl = new Vinyl("Dark Side of the Moon");
+    Vinyl gotVinyl = Vinyl.find(1);
+    assertEquals(true, gotVinyl instanceof Vinyl);
+  }
+
+  @Test
+  public void find_ReturnsTheCorrectVinylObject() {
+    Vinyl.reset();
+    Vinyl testVinyl = new Vinyl("Dark Side of the Moon");
+    Vinyl v2Vinyl = new Vinyl("OK Computer");
+    Vinyl gotVinyl = Vinyl.find(1);
+    assertEquals("Dark Side of the Moon", gotVinyl.getTitle());
+  }
+
 
 }
