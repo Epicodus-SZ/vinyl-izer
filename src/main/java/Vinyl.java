@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Vinyl {
+  private String mTitle;
+  private static List<Vinyl> instances = new ArrayList<Vinyl>();
+  private int mId;
+
+  public Vinyl(String title){
+    mTitle = title;
+    instances.add(this);
+    mId = instances.size();
+  }
+}
