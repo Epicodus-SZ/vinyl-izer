@@ -32,5 +32,23 @@ public class App {
       model.put("template", "templates/genre.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    get("vinyls/new", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("genres", Genre.getAll());
+      model.put("template", "templates/newVinyl.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("vinyls/new", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Genre genre = Genre.find(Integer.parseInt(request.queryParams("selectGenres")));
+      String title = request.queryParams("title");
+      Vinyl newVinyl = new Vinyl(title);
+      genre.addVinyl(newVinyl);
+      model.put("genre", genre);
+      model.put("template", "templates/genre.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
   }
 }

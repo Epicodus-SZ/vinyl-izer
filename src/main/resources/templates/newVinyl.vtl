@@ -1,0 +1,18 @@
+<!--newVinyls.vtl-->
+
+
+
+<h1>new Vinyl $genres[0].getId()</h1>
+<form method="post">
+<input id="title" name="title" type="text">
+
+<select name="selectGenres">
+#foreach ($genre in $genres)
+  <option value="$genre.getId()">$genre.getGenreName()</option>
+  #end
+</select>
+<button type="submit" class="btn btn-success">Add Vinyl</button>
+</form>
+
+<a href="/vinyls/new">Add New Vinyl</a>
+<!--newVinyls.vtl-->
