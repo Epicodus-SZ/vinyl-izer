@@ -26,6 +26,12 @@ public class Genre {
   public static Genre find(int id) {
     return instances.get(id - 1);
   }
+  public void addVinyl(Vinyl vinyl) {
+    mVinyls.add(vinyl);
+  }
+  public List<Vinyl> getAllVinyls() {
+    return mVinyls;
+  }
 
   public int getId(){
     return mId;

@@ -15,9 +15,21 @@ public class App {
       //if no genre's make one
       if (Genre.getSize()==0){
         Genre default1 = new Genre("Jazz");
-        Genre default2 = new Genre("Country");
+        Vinyl newVinyl1 = new Vinyl("Kind of Blue");
+        default1.addVinyl(newVinyl1);
+        Genre default2 = new Genre("Rock");
+        Vinyl newVinyl2 = new Vinyl("Radio Kaos");
+        default2.addVinyl(newVinyl2);
       }
       model.put("genres", Genre.getAll());
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("genres/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Genre genre = Genre.find(Integer.parseInt(request.params(":id")));
+      model.put("genre", genre);
+      model.put("template", "templates/genre.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
   }

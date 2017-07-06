@@ -1,0 +1,9 @@
+<!--genre.vtl-->
+<h1>All Vinyls in $genre.getGenreName()</h1>
+<ul>
+  #foreach ($vinyl in $genre.getAllVinyls())
+    <li>$vinyl.getTitle()</li>
+  #end
+</ul>
+<a href="/genres/new">Add New Genre</a>
+<!--genre.vtl-->
