@@ -1,0 +1,9 @@
+<!--index.vtl-->
+<h1>All Genres</h1>
+<ul>
+  #foreach ($genre in $genres)
+    <li><a href="/genres/$genre.getId()">$genre.getGenreName()</a></li>
+  #end
+</ul>
+<a href="/genres/new">Add New Genre</a>
+<!--index.vtl-->

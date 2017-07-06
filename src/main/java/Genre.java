@@ -12,6 +12,7 @@ public class Genre {
     instances.add(this);
     mId = instances.size();
     mVinyls = new ArrayList<Vinyl>();
+
   }
   public String getGenreName() {
     return mName;
@@ -24,5 +25,13 @@ public class Genre {
   }
   public static Genre find(int id) {
     return instances.get(id - 1);
+  }
+
+  public int getId(){
+    return mId;
+  }
+
+  public static List<Genre> getAll() {
+    return instances;
   }
 }
